@@ -8,7 +8,7 @@ COPY vite.config.js ./
 RUN npm run build
 
 # ---- Étape 2 : application PHP ----
-FROM php:8.3-cli
+FROM php:8.4-cli
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
