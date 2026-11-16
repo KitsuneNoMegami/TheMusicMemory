@@ -9,6 +9,7 @@ RUN npm run build
 
 # ---- Étape 2 : application PHP ----
 FROM php:8.4-cli
+RUN apt-get update && apt-get install -y --no-install-recommends unzip && rm -rf /var/lib/apt/lists/*
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
